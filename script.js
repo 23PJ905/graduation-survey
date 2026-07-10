@@ -134,7 +134,7 @@ button.addEventListener("click", function(){
        return;
 
     }
-    photo.src = "images1/" + photos[photoNumber - 1];
+    photo.src =  photos[photoNumber - 1];
 
     progress.textContent = "写真 " + photoNumber + " / " + PHOTO_COUNT;
 
@@ -156,7 +156,13 @@ function createQuestions(){
 
     questionArea.innerHTML = "";
 
-    questions.forEach(function(question,index){
+    const shuffledQuestions = [...questions];
+
+    shuffledQuestions.sort(function(){
+
+    return Math.random() - 0.5;
+});    
+    shuffledQuestions.forEach(function(question,index){
 
         let html = `
         <div class="questions">
@@ -213,7 +219,7 @@ function createQuestions(){
 
 createQuestions();
 
-photo.src = "images1/" + photos[photoNumber - 1];
+photo.src =  photos[photoNumber - 1];
 
 progress.textContent = "写真 " + photoNumber + " / " + PHOTO_COUNT;
 
