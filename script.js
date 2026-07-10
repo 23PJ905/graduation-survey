@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 const startButton = document.getElementById("startButton");
 
@@ -14,7 +14,7 @@ startButton.addEventListener("click", function(){
 
 });
 
-const PHOTO_COUNT = 2;
+const PHOTO_COUNT = 10;
 
 const questions = [
     ["だらしのない", "きちんとした"],
