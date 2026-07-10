@@ -118,7 +118,7 @@ input[type="radio"]:checked + label{
     padding: 30px;
     background: white;
     border-radius: 12px;
-    text-align: center;
+    text-align: left;
 }
 
 #startScreen h1{
