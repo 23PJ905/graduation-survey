@@ -54,6 +54,8 @@ const QUESTION_COUNT = questions.length;
 
 let photoNumber = 1;
 
+let questionOrder = [];
+
 let answers = [];
 
 const respondentID =
@@ -156,13 +158,15 @@ function createQuestions(){
 
     questionArea.innerHTML = "";
 
-    const shuffledQuestions = [...questions];
+    questionOrder = [...Array(QUESTION_COUNT).keys()];
 
-    shuffledQuestions.sort(function(){
-
+    questionOrder.sort(function(){
     return Math.random() - 0.5;
-});    
-    shuffledQuestions.forEach(function(question,index){
+    });   
+
+    questionOrder.forEach(function(questionNumber,index){
+
+        const question = questions[questionNumber];
 
         let html = `
         <div class="questions">
@@ -189,12 +193,12 @@ function createQuestions(){
             html += `
                 <input
                     type="radio"
-                    id="q${index+1}-${i}"
-                    name="q${index+1}"
+                    id="q${questionNumber+1}-${i}"
+                    name="q${questionNumber+1}"
                 >
 
                 <label
-                    for="q${index+1}-${i}">
+                    for="q${questionNumber+1}-${i}">
                 </label>
             `;
 
