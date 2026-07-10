@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卒論アンケート</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+<div id="startScreen">
+
+    <h1>卒業研究アンケート</h1>
+
+    <p>
+        本アンケートは卒業研究のために実施しています。
+    </p>
+
+    <p>
+        回答は匿名で収集し、研究目的以外には使用しません。
+    </p>
+    
+ 　 <p>
+        回答目安は20分です。
+    </p>
+
+    <p>
+        ご同意いただける場合は、
+        下のボタンを押して開始してください。
+    </p>
+
+    <button id="startButton">
+        同意して回答する
+    </button>
+
+</div>
+
+<div id="surveyScreen">
+
+    <div class="header">
+
+        <p id="progress" class="progress">写真 1 / 10</p>
+
+        <img id="photo" src="images1/1.png" alt="人物写真">
+
+        <p class="instruction">
+            あなたが面接の会場へ入った時、
+            面接官の服装から受ける印象についてお答えください。
+        </p>
+
+    </div>
+
+    <div id="questionArea"></div>
+
+    <div class="next-area">
+
+        <button id="nextButton" class="next-button">
+            次の写真へ →
+        </button>
+
+    </div>
+</div>
+
+<div id="infoScreen" style="display:none;">
+
+     <h2>最後に回答者情報をご入力ください</h2>
+
+     <p>年齢</p>
+
+     <select id="age">
+        <option value="">選択してください</option>
+        <option>18歳未満</option>
+        <option>18〜19歳</option>
+        <option>20〜22歳</option>
+        <option>23歳以上</option>
+     </select>
+
+     <p>学年</p>
+
+     <select id="grade">
+        <option value="">選択してください</option>
+        <option>大学1年</option>
+        <option>大学2年</option>
+        <option>大学3年</option>
+        <option>大学4年</option>
+        <option>大学院</option>
+        <option>社会人</option>
+     </select>
+
+     <br><br>
+
+     <button id="finishButton">
+        送信する
+     </button>
+
+     <p id="sendingMessage" style="display:none;">
+        送信しています...<br>
+        少々お待ちください。
+     </p>
+
+</div>
+
+<div id="thanksScreen" style="display:none;">
+
+    <h1>ご回答ありがとうございました！</h1>
+
+    <p>
+        アンケートへのご協力、誠にありがとうございました。
+    </p>
+
+    <p>
+        回答は匿名で保存されました。
+    </p>
+    
+    <p>
+    ご協力いただいた内容は、
+    卒業研究以外の目的では使用いたしません。
+    </p>
+
+    <p>
+        この画面を閉じて終了してください。
+    </p>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
