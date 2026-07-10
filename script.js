@@ -93,7 +93,7 @@ button.addEventListener("click", function(){
 
         if (!checked) {
 
-            alert("Q" + i + "が未回答です。");
+            alert("Q" + (i+1) + "が未回答です。");
 
             return;
 
@@ -126,6 +126,8 @@ button.addEventListener("click", function(){
     console.log(answers);
 
     photoNumber++;
+
+    createQuestions();
 
     if(photoNumber > PHOTO_COUNT){
 
