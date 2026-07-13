@@ -2,6 +2,24 @@ const DEBUG = false;
 
 const startButton = document.getElementById("startButton");
 
+const studentScreen = document.getElementById("studentScreen");
+
+const ageScreen = document.getElementById("ageScreen");
+
+const exampleScreen = document.getElementById("exampleScreen");
+
+const instructionScreen = document.getElementById("instructionScreen");
+
+const endScreen = document.getElementById("endScreen");
+
+const studentNextButton = document.getElementById("studentNextButton");
+
+const ageNextButton = document.getElementById("ageNextButton");
+
+const exampleNextButton = document.getElementById("exampleNextButton");
+
+const instructionNextButton = document.getElementById("instructionNextButton");
+
 const surveyScreen = document.getElementById("surveyScreen");
 
 const startScreen = document.getElementById("startScreen");
@@ -10,11 +28,76 @@ startButton.addEventListener("click", function(){
 
     startScreen.style.display = "none";
 
+    studentScreen.style.display = "block";
+
+});
+
+studentNextButton.addEventListener("click", function(){
+
+    const studentType = document.querySelector(
+        'input[name="studentType"]:checked'
+    );
+
+    if(studentType == null){
+
+        alert("現在の立場を選択してください。");
+
+        return;
+
+    }
+
+    studentTypeValue = studentType.value;
+
+    studentScreen.style.display = "none";
+
+    if(
+    studentTypeValue == "大学生" ||
+    studentTypeValue == "専門・短大"
+    ){
+
+        ageScreen.style.display = "block";
+
+    }else{
+
+        endScreen.style.display = "block";
+
+    }
+
+});
+
+ageNextButton.addEventListener("click", function(){
+
+    if(age.value == ""){
+
+        alert("年齢を選択してください。");
+
+        return;
+
+    }
+
+    ageScreen.style.display = "none";
+
+    exampleScreen.style.display = "block";
+
+});
+
+exampleNextButton.addEventListener("click", function(){
+
+    exampleScreen.style.display = "none";
+
+    instructionScreen.style.display = "block";
+
+});
+
+instructionNextButton.addEventListener("click", function(){
+
+    instructionScreen.style.display = "none";
+
     surveyScreen.style.display = "block";
 
 });
 
-const PHOTO_COUNT = 10;
+const PHOTO_COUNT = 2;
 
 const questions = [
     ["だらしのない", "きちんとした"],
@@ -58,6 +141,8 @@ let questionOrder = [];
 
 let answers = [];
 
+let studentTypeValue = "";
+
 const respondentID =
   "R" + Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
 
@@ -82,24 +167,45 @@ const photos = [
     "101.png"
 ];
 
-button.addEventListener("click", function(){
+async function finishSurvey(){
+
+    sendingMessage.style.display = "block";
+
+    button.style.display = "none";
+
+    await sendToGoogle();
+
+    surveyScreen.style.display = "none";
+
+    thanksScreen.style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+button.addEventListener("click", async function(){
   if(!DEBUG){
 
-    for (let i = 1; i <= QUESTION_COUNT; i++) {
+    for (let i = 0; i < QUESTION_COUNT; i++) {
 
-        const checked = document.querySelector(
-            'input[name="q' + i + '"]:checked'
-        );
+      const questionNumber = questionOrder[i];
 
-        if (!checked) {
+      const checked = document.querySelector(
+        'input[name="q' + (questionNumber + 1) + '"]:checked'
+      );
 
-            alert("Q" + (i+1) + "が未回答です。");
+      if (!checked) {
 
-            return;
+          alert("Q" + (i + 1) + "が未回答です。");
 
-        }
+          return;
 
-    }
+      }
+
+}
 
 }
 
@@ -121,23 +227,30 @@ button.addEventListener("click", function(){
 
 }
 
+
+
     answers.push(currentAnswers);
 
     console.log(answers);
 
-    photoNumber++;
+ photoNumber++;
 
-    createQuestions();
+   if(photoNumber > PHOTO_COUNT){
 
-    if(photoNumber > PHOTO_COUNT){
+    await finishSurvey();
 
-      surveyScreen.style.display = "none";
+    return;
 
-      infoScreen.style.display = "block";
+   }
 
-       return;
+  if(photoNumber === PHOTO_COUNT + 1){
 
-    }
+    button.textContent = "送信する";
+
+  }
+
+   createQuestions();
+
     photo.src =  photos[photoNumber - 1];
 
     progress.textContent = "写真 " + photoNumber + " / " + PHOTO_COUNT;
@@ -229,74 +342,35 @@ photo.src =  photos[photoNumber - 1];
 
 progress.textContent = "写真 " + photoNumber + " / " + PHOTO_COUNT;
 
-const infoScreen = document.getElementById("infoScreen");
-
 const thanksScreen = document.getElementById("thanksScreen");
-
-const finishButton = document.getElementById("finishButton");
 
 const age = document.getElementById("age");
 
-const grade = document.getElementById("grade");
-
 const sendingMessage = document.getElementById("sendingMessage");
 
-finishButton.addEventListener("click", async function(){
-
-    if(age.value == ""){
-
-        alert("年齢を選択してください");
-
-        return;
-
-    }
-
-    if(grade.value == ""){
-
-        alert("学年を選択してください");
-
-        return;
-
-    }
-
-    finishButton.disabled = true;
-    sendingMessage.style.display = "block";
-
-    await sendToGoogle();
-    
-    infoScreen.style.display = "none";
-
-    thanksScreen.style.display = "block";
-
-    window.scrollTo({
-       top: 0,
-       behavior: "smooth"
-});
-
-});
 
 async function sendToGoogle() {
 
-    const data = answers.map(function(answer){
+  const row = [
 
-        return [
-             
             respondentID,
 
-            age.value,
+            studentTypeValue,
 
-            grade.value,
+            age.value
+        ]   
 
-            answer.photo,
+ answers.forEach(function(answer){
 
-            ...Array.from(
-                {length: QUESTION_COUNT},
-                (_,i)=>answer["q"+(i+1)]
-            )
+    for(let i=1;i<=QUESTION_COUNT;i++){
 
-        ];
+        row.push(answer["q"+i]);
 
-    });
+    }
+
+ });
+
+const data = [row];
 
     await fetch("https://script.google.com/macros/s/AKfycbw2nVaNsirLdOCnvyA0GEmlFEDAtuyxr56NYNfXHz3sasWSPfIXJOUmmbNmM5EzIgDggw/exec",{
 

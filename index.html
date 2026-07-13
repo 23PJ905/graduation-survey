@@ -29,12 +29,13 @@
 
     <p>
         埼玉大学教育学部　被服学・家庭科教育研究室<br>
-        准教授　高橋美登梨　（midori@mail.saitama-u.ac.jp）<br>
+        准教授　高橋美登梨　（midorit🦄mail.saitama-u.ac.jp）<br>
+        （🦄をアットマークに変更してください）<br>
         4年　赤石和奏
     </p>
 
     <p>
-       ご不明な点等ございましたら、上記の高橋までお問い合わせください。
+      ご不明な点等ございましたら、上記の高橋までお問い合わせください。
     </p>
 
     <p>
@@ -48,7 +49,159 @@
 
 </div>
 
-<div id="surveyScreen">
+<div id="studentScreen" style="display:none;">
+
+    <h1>回答者情報①</h1>
+
+    <p>
+        現在の立場を選択してください。
+    </p>
+
+   <label class="student-option">
+       <input type="radio" name="studentType" value="大学生">
+       大学生
+   </label>
+
+   <label class="student-option">
+       <input type="radio" name="studentType" value="専門・短大">
+       専門・短大
+   </label>
+
+   <label class="student-option">
+     <input type="radio" name="studentType" value="社会人">
+     社会人
+   </label>
+
+   <label class="student-option">
+      <input type="radio" name="studentType" value="その他">
+       その他
+   </label>
+
+    <br><br>
+
+ <div class="next-area">
+    <button id="studentNextButton" class="next-button">
+        次へ
+    </button>
+ </div>
+
+</div>
+
+<div id="ageScreen" style="display:none;">
+
+    <h1>回答者情報②</h1>
+
+    <p>年齢を選択してください。</p>
+
+    <select id="age">
+
+        <option value="">選択してください</option>
+
+        <option>18歳</option>
+
+        <option>19歳</option>
+
+        <option>20歳</option>
+
+        <option>21歳</option>
+
+        <option>22歳</option>
+
+        <option>23歳</option>
+
+        <option>24歳</option>
+
+        <option>25歳以上</option>
+
+    </select>
+
+    <br><br>
+
+  <div class="next-area">
+    <button id="ageNextButton" class="next-button">
+
+        次へ
+
+    </button>
+  </div>
+
+</div>
+
+<div id="exampleScreen" style="display:none;">
+
+    <h2>回答方法</h2>
+
+    <p>
+     下のような人物写真が全部で10枚表示されます。<br>
+     各写真について、人物の服装から受ける印象を選択してください。<br>
+     （画像・質問は例です）
+    </p>
+
+    <div class="sample-box">
+
+      <img src="601.png" class="sample-photo">
+
+      <p><strong>写真 1 / 10</strong></p>
+
+      <p>
+        あなたがこの服装から、<br>
+        受ける印象についてお答えください。
+      </p>
+
+    <div class="sample-scale">
+
+        <span>静的な</span>
+       
+        <span class="sample-circles">〇　〇　〇　●　〇</span>
+
+        <span>動的な</span>
+
+    </div>
+
+</div>
+
+    <br>
+
+ <div class="next-area">
+    <button id="exampleNextButton" class="next-button">
+
+        次へ
+
+    </button>
+ </div>
+
+</div>
+
+<div id="instructionScreen" style="display:none;">
+
+    <h1>回答時のお願い</h1>
+
+    <p style="font-size:22px; line-height:2;">
+
+        あなたは就職活動中です。<br><br>
+
+        面接会場へ入室した際の<br>
+
+        面接官の<strong>服装</strong>から受ける印象について<br>
+
+        お答えください。<br><br>
+
+        表情や背景ではなく、<br>
+
+        <strong>服装のみ</strong>を基準として回答してください。
+
+    </p>
+ <div class="next-area">
+    <button id="instructionNextButton" class="next-button">
+
+        アンケート開始
+
+    </button>
+ </div>
+
+</div>
+
+<div id="surveyScreen" style="display:none;">
 
     <div class="header">
 
@@ -71,45 +224,33 @@
             次の写真へ →
         </button>
 
+        <p id="sendingMessage" style="display:none;">
+            送信しています...<br>
+            少々お待ちください。
+        </p>
+
     </div>
 </div>
 
-<div id="infoScreen" style="display:none;">
+<div id="endScreen" style="display:none;">
 
-     <h2>最後に回答者情報をご入力ください</h2>
+    <h1>ご協力ありがとうございました。</h1>
 
-     <p>年齢</p>
+    <p>
+        本研究は大学生を対象としております。
+    </p>
 
-     <select id="age">
-        <option value="">選択してください</option>
-        <option>18歳未満</option>
-        <option>18〜19歳</option>
-        <option>20〜22歳</option>
-        <option>23歳以上</option>
-     </select>
+    <p>
+        今回は対象外となります。
+    </p>
 
-     <p>学年</p>
+    <p>
+        ご協力ありがとうございました。
+    </p>
 
-     <select id="grade">
-        <option value="">選択してください</option>
-        <option>大学1年</option>
-        <option>大学2年</option>
-        <option>大学3年</option>
-        <option>大学4年</option>
-        <option>大学院</option>
-        <option>社会人</option>
-     </select>
-
-     <br><br>
-
-     <button id="finishButton">
-        送信する
-     </button>
-
-     <p id="sendingMessage" style="display:none;">
-        送信しています...<br>
-        少々お待ちください。
-     </p>
+    <p>
+        この画面を閉じて終了してください。
+    </p>
 
 </div>
 
