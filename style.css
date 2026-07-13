@@ -230,8 +230,8 @@ input[type="radio"]{
 
 @media (max-width: 768px) {
     .scale{
-     grid-template-columns:95px 1fr 95px;
-     gap:8px;
+     grid-template-columns:60px 1fr 60px;
+     gap:4px;
      align-items:center;
     }
 
@@ -239,9 +239,8 @@ input[type="radio"]{
 
      display:grid;
  
-     grid-template-columns:80px repeat(5,1fr) 80px;
- 
-     gap:8px;
+     grid-template-columns:60px repeat(5,1fr) 60px;
+     gap:4px;
 
      font-size:11px;
      line-height:1.3;
@@ -256,6 +255,7 @@ input[type="radio"]{
         font-size:12px;
         margin:0;
         white-space:normal;
+        word-break:break-word;
     }
 
     .choices{
@@ -273,7 +273,11 @@ input[type="radio"]{
     }
 
     .questions{
-        padding: 10px;
+      overflow-x:hidden;
+    }
+
+    body{
+      overflow-x:hidden;
     }
     
     .choices label{
