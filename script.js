@@ -4,6 +4,7 @@ const startButton = document.getElementById("startButton");
 
 const studentScreen = document.getElementById("studentScreen");
 
+
 const ageScreen = document.getElementById("ageScreen");
 
 const exampleScreen = document.getElementById("exampleScreen");
@@ -66,6 +67,18 @@ studentNextButton.addEventListener("click", function(){
 });
 
 ageNextButton.addEventListener("click", function(){
+
+    const gender = document.querySelector('input[name="gender"]:checked');
+    
+    if(gender == null){
+
+    alert("性別を選択してください。");
+
+    return;
+
+    }
+
+    genderValue = gender.value;
 
     if(age.value == ""){
 
@@ -357,6 +370,8 @@ async function sendToGoogle() {
 
             studentTypeValue,
 
+            genderValue,
+
             age.value
         ]   
 
@@ -372,7 +387,7 @@ async function sendToGoogle() {
 
 const data = [row];
 
-    await fetch("https://script.google.com/macros/s/AKfycbw2nVaNsirLdOCnvyA0GEmlFEDAtuyxr56NYNfXHz3sasWSPfIXJOUmmbNmM5EzIgDggw/exec",{
+    await fetch("https://script.google.com/macros/s/AKfycbzPNJaQN3AKxgj79KHXGGsiGHyhWPpeCdQs0qWJyLbrhTPbGqYJvd4MYA0gJUinNMpa/exec",{
 
         method:"POST",
 

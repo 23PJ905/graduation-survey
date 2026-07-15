@@ -256,11 +256,12 @@ input[type="radio"]{
         margin:0;
         white-space:normal;
         word-break:break-word;
+        font-weight:bold;
     }
 
     .choices{
         width: 100%;
-        gap: 0px;
+        gap: 16px;
     }
 
     img{
@@ -281,8 +282,8 @@ input[type="radio"]{
     }
     
     .choices label{
-     width:36px;
-     height:36px;
+     width: 26px;
+     height:26px;
      border:2px solid #888;
      border-radius:50%;
      display:block;
