@@ -230,7 +230,7 @@ input[type="radio"]{
 
 @media (max-width: 768px) {
     .scale{
-     grid-template-columns:60px 1fr 60px;
+     grid-template-columns:50px 1fr 50px;
      gap:4px;
      align-items:center;
     }
@@ -239,7 +239,7 @@ input[type="radio"]{
 
      display:grid;
  
-     grid-template-columns:60px repeat(5,1fr) 60px;
+     grid-template-columns:50px repeat(5,1fr) 50px;
      gap:4px;
 
      font-size:11px;
@@ -252,7 +252,7 @@ input[type="radio"]{
     .left-word,
     .right-word{
         width:auto;
-        font-size:12px;
+        font-size:11px;
         margin:0;
         white-space:normal;
         word-break:break-word;
