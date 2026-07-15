@@ -9,12 +9,22 @@ img{
     margin: 0 auto;
 }
 
+#photo{
+    width: 40%;
+    max-width: 360px;
+    display: block;
+    margin: 0 auto;
+}
+
 .header{
     position: sticky;
     top: 0;
     background: white;
     padding:20px;
     border-bottom:1px solid #ddd;
+    max-width: 900px;
+    margin: 0 auto;
+
 }
 
 .progress{
@@ -105,12 +115,12 @@ input[type="radio"]{
 #surveyScreen{
 
     display:none;
+    max-width: 900px;
+    margin: 0 auto;
 
 }
 
-#surveyScreen{
-    display: none;
-}
+
 
 #studentScreen,
 #ageScreen,
@@ -134,6 +144,11 @@ input[type="radio"]{
     background: white;
     border-radius: 12px;
     text-align: left;
+}
+
+#questionArea{
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 #startScreen h1{
@@ -265,8 +280,8 @@ input[type="radio"]{
     }
 
     img{
-      width: 45%;
-      max-width: 250px;
+      width: 55%;
+      max-width: 300px;
     }
 
     .header{
