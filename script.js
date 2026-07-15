@@ -110,7 +110,7 @@ instructionNextButton.addEventListener("click", function(){
 
 });
 
-const PHOTO_COUNT = 1;
+const PHOTO_COUNT = 10;
 
 const questions = [
     ["だらしのない", "きちんとした"],
@@ -148,7 +148,7 @@ const questions = [
 
 const QUESTION_COUNT = questions.length;
 
-let photoNumber = 10;
+let photoNumber = 1;
 
 let questionOrder = [];
 
