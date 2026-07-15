@@ -28,8 +28,11 @@ const startScreen = document.getElementById("startScreen");
 startButton.addEventListener("click", function(){
 
     startScreen.style.display = "none";
-
     studentScreen.style.display = "block";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 });
 
@@ -64,6 +67,11 @@ studentNextButton.addEventListener("click", function(){
 
     }
 
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+    });
+
 });
 
 ageNextButton.addEventListener("click", function(){
@@ -92,6 +100,11 @@ ageNextButton.addEventListener("click", function(){
 
     exampleScreen.style.display = "block";
 
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+    });
+
 });
 
 exampleNextButton.addEventListener("click", function(){
@@ -100,6 +113,11 @@ exampleNextButton.addEventListener("click", function(){
 
     instructionScreen.style.display = "block";
 
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+    });
+
 });
 
 instructionNextButton.addEventListener("click", function(){
@@ -107,6 +125,11 @@ instructionNextButton.addEventListener("click", function(){
     instructionScreen.style.display = "none";
 
     surveyScreen.style.display = "block";
+    
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+    });
 
 });
 
