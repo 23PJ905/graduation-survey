@@ -279,9 +279,9 @@ input[type="radio"]{
         gap: 16px;
     }
 
-    img{
-      width: 55%;
-      max-width: 300px;
+    #photo{
+        width: 60%;
+        max-width: 320px;
     }
 
     .header{
