@@ -260,7 +260,7 @@ input[type="radio"]{
 
     .choices{
         width: 100%;
-        gap: 10px;
+        gap: 0px;
     }
 
     img{
