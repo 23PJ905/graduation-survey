@@ -97,7 +97,7 @@ instructionNextButton.addEventListener("click", function(){
 
 });
 
-const PHOTO_COUNT = 2;
+const PHOTO_COUNT = 10;
 
 const questions = [
     ["だらしのない", "きちんとした"],
