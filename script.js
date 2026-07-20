@@ -56,7 +56,8 @@ studentNextButton.addEventListener("click", function(){
 
     if(
     studentTypeValue == "大学生" ||
-    studentTypeValue == "専門・短大"
+    studentTypeValue == "専門"  ||
+    studentTypeValue == "短大"
     ){
 
         ageScreen.style.display = "block";
