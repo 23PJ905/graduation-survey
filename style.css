@@ -161,12 +161,21 @@ input[type="radio"]{
 }
 
 #startButton{
-    margin-top: 20px;
-    padding: 12px 28px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    background-color:#F8A5C2;
+    color:white;
+    border:none;
+    border-radius:10px;
+    width:90%;
+    max-width:400px;
+    padding:18px;
+    font-size:20px;
+    cursor:pointer;
+    display:block;
+    margin:30px auto 0;
+}
+
+#startButton:hover{
+    background-color:#F48FB1;
 }
 
 .choice-labels{
